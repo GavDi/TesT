@@ -6,5 +6,5 @@ import retrofit2.http.Header
 
 interface TvPlaylistApi {
     @GET("api/playlist")
-    suspend fun getTvPlaylists(@Header("X-Key") apiKey: String): Response<List<Any>>
+    suspend fun getTvPlaylists(@Header("X-Key") apiKey: String): Response<TvJsons>
 }

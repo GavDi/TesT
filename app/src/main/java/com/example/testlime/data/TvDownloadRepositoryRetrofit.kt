@@ -1,7 +1,9 @@
 package com.example.testlime.data
 
 import com.example.testlime.domain.TvDownloadRepository
+import retrofit2.HttpException
 import retrofit2.Retrofit
+import java.io.IOException
 import javax.inject.Inject
 
 class TvDownloadRepositoryRetrofit @Inject constructor (
@@ -14,10 +16,15 @@ class TvDownloadRepositoryRetrofit @Inject constructor (
             val apiKey = "fh3487klskhjk2fh782kjhsdi72knjwfk7i2efdjbm"
             val playlists = playlistApi.getTvPlaylists(apiKey)
             val p = playlists
-            println("Received playlists: $playlists")
-
+        } catch (e: HttpException) {
+            println("TvDownloadRepositoryRetrofit HTTP exception occurred: ${e.message()}")
+            e.printStackTrace()
+        } catch (e: IOException) {
+            println("TvDownloadRepositoryRetrofit Network or conversion error occurred: ${e.message}")
+            e.printStackTrace()
         } catch (e: Exception) {
-            println("Хуйня, переделывай")
+            println("TvDownloadRepositoryRetrofit Unknown error occurred: ${e.message}")
+            e.printStackTrace()
         }
     }
 
