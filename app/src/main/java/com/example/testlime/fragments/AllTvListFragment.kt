@@ -8,7 +8,9 @@ import android.view.ViewGroup
 import com.example.testlime.R
 import androidx.fragment.app.activityViewModels
 import com.example.testlime.viewModels.TvViewModel
+import dagger.hilt.android.AndroidEntryPoint
 
+@AndroidEntryPoint
 class AllTvListFragment : Fragment() {
 
     private val tvViewModel: TvViewModel by activityViewModels()
