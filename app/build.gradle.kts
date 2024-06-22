@@ -53,6 +53,11 @@ android {
 }
 
 dependencies {
+    implementation ("androidx.fragment:fragment-ktx:1.8.0")
+    //implementation(libs.androidx.lifecycle.livedata.ktx)
+    //implementation(libs.androidx.lifecycle.viewmodel)
+    //implementation(libs.androidx.lifecycle.viewmodel.ktx)
+
     implementation(libs.hilt.android)
     kapt(libs.dagger.hilt.android.compiler)
 
