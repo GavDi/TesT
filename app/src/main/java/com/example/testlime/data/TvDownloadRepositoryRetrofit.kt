@@ -7,7 +7,8 @@ import java.io.IOException
 import javax.inject.Inject
 
 class TvDownloadRepositoryRetrofit @Inject constructor (
-    private val retrofit: Retrofit
+    private val retrofit: Retrofit,
+    private val tvDao: TvDao
 ): TvDownloadRepository {
 
     override suspend fun getData() {
