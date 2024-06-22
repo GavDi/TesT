@@ -38,6 +38,7 @@ android {
     }
     buildFeatures {
         compose = true
+        viewBinding = true
     }
     composeOptions {
         kotlinCompilerExtensionVersion = "1.5.1"
@@ -50,6 +51,9 @@ android {
 }
 
 dependencies {
+    implementation(libs.appcompat)
+    implementation(libs.androidx.constraintlayout)
+    implementation(libs.material)
 
     implementation(libs.androidx.core.ktx)
     implementation(libs.androidx.lifecycle.runtime.ktx)
