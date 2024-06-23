@@ -5,5 +5,6 @@ import java.io.Serializable
 data class Tv(
     val name_ru: String,
     val image: String,
-    val url: String
+    val url: String,
+    val is_favourite: Boolean
 ) : Serializable

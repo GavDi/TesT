@@ -23,17 +23,14 @@ class TvDownloadRepositoryRetrofit @Inject constructor (
 
             if (response.isSuccessful) {
                 if (response.body() != null) {
-                    println("В ТЕОРИИ ВСЕ ПИЗДАТО")
                     val playlists = response.body()?.channels ?: emptyList()
-                    val tvDbEntityList =
-                        playlists.map { channels ->
-                            TvDbEntity(
-                                name_ru = channels.name_ru,
-                                image = channels.image ?: "",
-                                url = channels.url
-                            ) }
-                     val p = 0
+
                     CoroutineScope(Dispatchers.IO).launch {
+                        val favouriteTvListMap = tvDao.getTvNamesAndFavourites().associateBy { it.name_ru }
+                        val tvDbEntityList = playlists.map { it ->
+                            val favouriteTv = favouriteTvListMap[it.name_ru]
+                            it.fromTvToTvDbEntity(isFavourite = favouriteTv?.is_favourite ?: false)
+                        }
                         tvDao.insertAll(tvDbEntityList)
                     }
                 }else {
