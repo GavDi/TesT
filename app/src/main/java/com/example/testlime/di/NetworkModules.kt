@@ -1,5 +1,7 @@
 package com.example.testlime.di
 
+import com.google.gson.Gson
+import com.google.gson.GsonBuilder
 import dagger.Module
 import dagger.Provides
 import dagger.hilt.InstallIn
@@ -14,9 +16,13 @@ class NetworkModules {
 
     @Provides
     @Singleton
-    fun provideRetrofit(): Retrofit = Retrofit.Builder ()
+    fun provideGson(): Gson = GsonBuilder().create()
+
+    @Provides
+    @Singleton
+    fun provideRetrofit(gson: Gson): Retrofit = Retrofit.Builder ()
         .baseUrl("https://limeapi.online/")
-        .addConverterFactory(GsonConverterFactory.create())
+        .addConverterFactory(GsonConverterFactory.create(gson))
         .build()
 
 }
