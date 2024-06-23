@@ -66,7 +66,7 @@ dependencies {
     implementation(libs.okhttp.logging.interceptor)
 
     implementation ("androidx.fragment:fragment-ktx:1.8.0")
-    //implementation(libs.androidx.lifecycle.livedata.ktx)
+    implementation(libs.androidx.lifecycle.livedata.ktx)
     //implementation(libs.androidx.lifecycle.viewmodel)
     //implementation(libs.androidx.lifecycle.viewmodel.ktx)
 

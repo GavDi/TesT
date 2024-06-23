@@ -26,8 +26,11 @@ class AllTvListFragment : Fragment() {
 
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
-        val p = tvViewModel.getTvLiveData()
-        val c = p
+
+        val tvLiveData = tvViewModel.getTvLiveData()
+        tvLiveData.observe(viewLifecycleOwner) {
+
+        }
     }
 
 }
